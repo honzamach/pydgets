@@ -1,0 +1,1219 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>widgets &mdash; Pydgets - Python console widget library 0.5 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Pydgets - Python console widget library 0.5 documentation" href="../../index.html"/>
+        <link rel="up" title="API" href="api.html"/>
+        <link rel="prev" title="API" href="api.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../manual.html" class="icon icon-home"> Pydgets - Python console widget library
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="api.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">widgets</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../manual.html">Pydgets - Python console widget library</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../manual.html">Docs</a> &raquo;</li>
+      
+          <li><a href="api.html">API</a> &raquo;</li>
+      
+    <li>widgets</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/doc/_pages/api_widgets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-pydgets.widgets">
+<span id="widgets"></span><span id="section-api-widgets"></span><h1>widgets<a class="headerlink" href="#module-pydgets.widgets" title="Permalink to this headline">¶</a></h1>
+<p>Console widget library for Python3.</p>
+<p>This library is intended to help in data presentation from various console scripts.
+It provides tools for easy formating and rendering of many usefull &#8216;widgets&#8217; like
+lists, tree strutures, tables, etc.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Although production code is based on this library, it should still be considered
+work in progress.</p>
+</div>
+<dl class="class">
+<dt id="pydgets.widgets.BarChartWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">BarChartWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BarChartWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BarChartWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of formatable bar chart widget.</p>
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.chart_measure">
+<code class="descname">chart_measure</code><span class="sig-paren">(</span><em>bars</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BarChartWidget.chart_measure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BarChartWidget.chart_measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measure the width of each table column.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BarChartWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BarChartWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BarChartWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BarChartWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.BorderedMultiLineWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">BorderedMultiLineWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BorderedMultiLineWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for bordered widgets spanning over multiple lines.</p>
+<dl class="staticmethod">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.bchar">
+<em class="property">static </em><code class="descname">bchar</code><span class="sig-paren">(</span><em>posh</em>, <em>posv</em>, <em>border_style</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BorderedMultiLineWidget.bchar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.bchar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve table border style for particular box border piece.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.calculate_width_content">
+<em class="property">static </em><code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>border=False</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BorderedMultiLineWidget.calculate_width_content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.calculate_width_widget_int">
+<em class="property">static </em><code class="descname">calculate_width_widget_int</code><span class="sig-paren">(</span><em>width</em>, <em>border=False</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BorderedMultiLineWidget.calculate_width_widget_int"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.calculate_width_widget_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BorderedMultiLineWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BorderedMultiLineWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BorderedMultiLineWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.BoxWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">BoxWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BoxWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BoxWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of box widget.</p>
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.bchar">
+<code class="descname">bchar</code><span class="sig-paren">(</span><em>posh</em>, <em>posv</em>, <em>border_style</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.bchar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve table border style for particular box border piece.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>border=False</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.calculate_width_widget_int">
+<code class="descname">calculate_width_widget_int</code><span class="sig-paren">(</span><em>width</em>, <em>border=False</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.calculate_width_widget_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.fmt_border">
+<code class="descname">fmt_border</code><span class="sig-paren">(</span><em>width</em>, <em>t='m'</em>, <em>border_style='utf8.a'</em>, <em>border_formating={}</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BoxWidget.fmt_border"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BoxWidget.fmt_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format box separator line.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#BoxWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.BoxWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.BoxWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.BoxWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.ConsoleWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">ConsoleWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all console widgets implemented by this library.</p>
+<p>This class provides basic common methods for widget setup and rendering.</p>
+<dl class="attribute">
+<dt id="pydgets.widgets.ConsoleWidget.SETTING_FLAG_ASCII">
+<code class="descname">SETTING_FLAG_ASCII</code><em class="property"> = 'ascii'</em><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.SETTING_FLAG_ASCII" title="Permalink to this definition">¶</a></dt>
+<dd><p>Widget setting: ASCII only output flag</p>
+<p>Setting this flag to True will force the widget to be displayed using only
+ASCII characters.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pydgets.widgets.ConsoleWidget.SETTING_FLAG_PLAIN">
+<code class="descname">SETTING_FLAG_PLAIN</code><em class="property"> = 'plain'</em><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.SETTING_FLAG_PLAIN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Widget setting: Plain only output flag</p>
+<p>Setting this flag to True will force the widget to be displayed without any
+fancy terminal formating (colors, emphasis, etc.).</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.ConsoleWidget.calculate_width_content">
+<em class="property">static </em><code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.calculate_width_content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.ConsoleWidget.calculate_width_widget">
+<em class="property">static </em><code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.calculate_width_widget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.ConsoleWidget.fmt_content">
+<em class="property">static </em><code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.fmt_content"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.ConsoleWidget.fmt_data">
+<em class="property">static </em><code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.fmt_data"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.ConsoleWidget.fmt_margin">
+<em class="property">static </em><code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.fmt_margin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.ConsoleWidget.fmt_text">
+<em class="property">static </em><code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.fmt_text"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ConsoleWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.get_setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ConsoleWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+<p>The returned list is then used in setup() and get_setup() methods to setup
+the widget internal settings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ConsoleWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.render"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ConsoleWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ConsoleWidget.setup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ConsoleWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.ListWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">ListWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ListWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ListWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of list widget.</p>
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.ListWidget.lchar">
+<em class="property">static </em><code class="descname">lchar</code><span class="sig-paren">(</span><em>list_style</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ListWidget.lchar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ListWidget.lchar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve list bullet character for particular list style.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ListWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ListWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ListWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ListWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.MultiLineWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">MultiLineWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#MultiLineWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.MultiLineWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for widgets spanning over multiple lines.</p>
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#MultiLineWidget.display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+<p>The returned list is then used in setup() and get_setup() methods to setup
+the widget internal settings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.MultiLineWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.MultiLineWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.ProgressBarWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">ProgressBarWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ProgressBarWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of formatable progress bar widget.</p>
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ProgressBarWidget.display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#ProgressBarWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.ProgressBarWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.ProgressBarWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.SingleLineWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">SingleLineWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#SingleLineWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.SingleLineWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for single line only widgets.</p>
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#SingleLineWidget.display"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+<p>The returned list is then used in setup() and get_setup() methods to setup
+the widget internal settings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.SingleLineWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.SingleLineWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.StatusLineWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">StatusLineWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#StatusLineWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.StatusLineWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of line widget.</p>
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.StatusLineWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.StatusLineWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.TableWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">TableWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Table result formater.</p>
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.bchar">
+<code class="descname">bchar</code><span class="sig-paren">(</span><em>posh</em>, <em>posv</em>, <em>border_style</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.bchar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve table border style for particular box border piece.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>border=False</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.calculate_width_widget_int">
+<code class="descname">calculate_width_widget_int</code><span class="sig-paren">(</span><em>width</em>, <em>border=False</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.calculate_width_widget_int" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.fmt_border">
+<code class="descname">fmt_border</code><span class="sig-paren">(</span><em>dimensions</em>, <em>t='m'</em>, <em>border_style='utf8.a'</em>, <em>border_formating={}</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget.fmt_border"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget.fmt_border" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format table separator line.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.fmt_cell">
+<code class="descname">fmt_cell</code><span class="sig-paren">(</span><em>value</em>, <em>width</em>, <em>cell_formating</em>, <em>**text_formating</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget.fmt_cell"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget.fmt_cell" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format sigle table cell.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.fmt_row">
+<code class="descname">fmt_row</code><span class="sig-paren">(</span><em>columns</em>, <em>dimensions</em>, <em>row</em>, <em>**settings</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget.fmt_row"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget.fmt_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format single table row.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.fmt_row_header">
+<code class="descname">fmt_row_header</code><span class="sig-paren">(</span><em>columns</em>, <em>dimensions</em>, <em>**settings</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget.fmt_row_header"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget.fmt_row_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format table header row.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TableWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.table_enumerate">
+<code class="descname">table_enumerate</code><span class="sig-paren">(</span><em>columns</em>, <em>content</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget.table_enumerate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget.table_enumerate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumerate each table column.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.table_format">
+<code class="descname">table_format</code><span class="sig-paren">(</span><em>columns</em>, <em>content</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget.table_format"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget.table_format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumerate each table column.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TableWidget.table_measure">
+<code class="descname">table_measure</code><span class="sig-paren">(</span><em>columns</em>, <em>content</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TableWidget.table_measure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TableWidget.table_measure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Measure the width of each table column.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.TextWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">TextWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TextWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TextWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation of formatable text widget.</p>
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TextWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TextWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TextWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TextWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="pydgets.widgets.TreeWidget">
+<em class="property">class </em><code class="descclassname">pydgets.widgets.</code><code class="descname">TreeWidget</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TreeWidget"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TreeWidget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base class for all console widgets.</p>
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.calculate_width_content">
+<code class="descname">calculate_width_content</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.calculate_width_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget content width based on given margins and paddings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.calculate_width_widget">
+<code class="descname">calculate_width_widget</code><span class="sig-paren">(</span><em>width</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.calculate_width_widget" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate actual widget width based on given margins.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.display">
+<code class="descname">display</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.display" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering and output the result.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.fmt_content">
+<code class="descname">fmt_content</code><span class="sig-paren">(</span><em>text</em>, <em>width=0</em>, <em>align='&lt;'</em>, <em>padding=None</em>, <em>padding_left=None</em>, <em>padding_right=None</em>, <em>padding_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.fmt_content" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pad given text with given padding characters, inflate it to given width
+and perform horizontal aligning.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.fmt_data">
+<code class="descname">fmt_data</code><span class="sig-paren">(</span><em>text</em>, <em>data_formating=None</em>, <em>data_type=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.fmt_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Format given text according to given data formating pattern or data type.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.fmt_margin">
+<code class="descname">fmt_margin</code><span class="sig-paren">(</span><em>text</em>, <em>margin=None</em>, <em>margin_left=None</em>, <em>margin_right=None</em>, <em>margin_char=' '</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.fmt_margin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Surround given text with given margin characters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.fmt_text">
+<code class="descname">fmt_text</code><span class="sig-paren">(</span><em>text</em>, <em>bg=None</em>, <em>fg=None</em>, <em>attr=None</em>, <em>plain=False</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.fmt_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply given console formating around given text.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.get_setup">
+<code class="descname">get_setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.get_setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current setup by combining internal settings with the ones given.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.list_settings">
+<code class="descname">list_settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TreeWidget.list_settings"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TreeWidget.list_settings" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all appropriate settings and their default values.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.render">
+<code class="descname">render</code><span class="sig-paren">(</span><em>content=None</em>, <em>**settings</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform widget rendering, but do not print anything.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pydgets.widgets.TreeWidget.setup">
+<code class="descname">setup</code><span class="sig-paren">(</span><em>content=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#pydgets.widgets.TreeWidget.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store settings internally.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="pydgets.widgets.TreeWidget.tchar">
+<em class="property">static </em><code class="descname">tchar</code><span class="sig-paren">(</span><em>tree_style</em>, <em>cur_level</em>, <em>level</em>, <em>item</em>, <em>size</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#TreeWidget.tchar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.TreeWidget.tchar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve tree character for particular tree node.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="pydgets.widgets.terminal_size">
+<code class="descclassname">pydgets.widgets.</code><code class="descname">terminal_size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pydgets/widgets.html#terminal_size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pydgets.widgets.terminal_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detect the current size of terminal window as a numer of rows and columns.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="API" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Jan Mach.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'0.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
