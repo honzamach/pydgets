@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2016 Honza Mach
+Copyright (C) since 2016 Jan Mach <honza.mach.ml@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
