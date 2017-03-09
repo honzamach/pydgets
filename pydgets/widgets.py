@@ -1,12 +1,22 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 #-------------------------------------------------------------------------------
-# Copyright (C) 2015-2016 Jan Mach <honza.mach.ml@gmail.com>
+# Copyright (C) since 2016 Jan Mach <honza.mach.ml@gmail.com>
 # Use of this source is governed by the MIT license, see LICENSE file.
 #-------------------------------------------------------------------------------
 
 """
-Console widget library.
+Console widget library for Python3.
+
+This library is intended to help in data presentation from various console scripts.
+It provides tools for easy formating and rendering of many usefull 'widgets' like
+lists, tree strutures, tables, etc.
+
+.. note::
+
+    Although production code is based on this library, it should still be considered
+    work in progress.
+
 """
 
 import os
@@ -18,6 +28,8 @@ import time
 import pprint
 
 DFLT_TABLE_STYLE = 'utf8.b'
+
+# Detected terminal width and height
 TERMINAL_WIDTH   = 0
 TERMINAL_HEIGHT  = 0
 
@@ -71,10 +83,11 @@ TEXT_FORMATING = {
     'rst': '\033[0m',
 }
 
+# Text alignment index
 TEXT_ALIGNMENT = {
     '<': '<', 'l': '<', 'left':   '<', 'L': '<', 'LEFT':   '<',
     '>': '>', 'r': '>', 'right':  '>', 'R': '>', 'RIGHT':  '>',
-    '^': '^', 'c': 'c', 'center': 'c', 'C': 'c', 'CENTER': 'c', 
+    '^': '^', 'c': 'c', 'center': 'c', 'C': 'c', 'CENTER': 'c',
 }
 
 # Index of box/table border drawing characters (https://en.wikipedia.org/wiki/Box-drawing_character)
@@ -115,7 +128,7 @@ BORDER_STYLES = {
         'bh': '#', 'bv': '#', 'bl': '#', 'bm': '#', 'br': '#'
     },
     'utf8.a': {
-        # Alternativelly define the characters with unicode codes
+        # Alternativelly it is possible to define the characters with unicode codes
         #'th': '\u2500', 'tv': '\u2502', 'tl': '\u250c', 'tm': '\u252c', 'tr': '\u2510',
         #'mh': '\u2500', 'mv': '\u2502', 'ml': '\u251c', 'mm': '\u253c', 'mr': '\u2524',
         #'bh': '\u2500', 'bv': '\u2502', 'bl': '\u2514', 'bm': '\u2534', 'br': '\u2518'
@@ -277,38 +290,41 @@ TREE_STYLES = {
 
 def terminal_size():
     """
-    Detect the size of terminal window in rows and columns.
+    Detect the current size of terminal window as a numer of rows and columns.
     """
     try:
         (rows, columns) = os.popen('stty size', 'r').read().split()
         rows    = int(rows)
         columns = int(columns)
         return (columns, rows)
-    
+
     # Currently ignore any errors and return some reasonable default values.
+    # Errors may occur, when the library is used in non-terminal application
+    # like daemon.
     except:
         pass
     return (80, 24)
 
+# Detect the terminal size automatically after library initialization
 (TERMINAL_WIDTH, TERMINAL_HEIGHT) = terminal_size()
 
 #-------------------------------------------------------------------------------
 
 class ConsoleWidget:
     """
-    Base class for all console widgets.
+    Base class for all console widgets implemented by this library.
 
     This class provides basic common methods for widget setup and rendering.
     """
-    
+
     SETTING_FLAG_PLAIN = 'plain'
     """
     Widget setting: Plain only output flag
-    
+
     Setting this flag to True will force the widget to be displayed without any
     fancy terminal formating (colors, emphasis, etc.).
     """
-    
+
     SETTING_FLAG_ASCII = 'ascii'
     """
     Widget setting: ASCII only output flag
@@ -316,25 +332,25 @@ class ConsoleWidget:
     Setting this flag to True will force the widget to be displayed using only
     ASCII characters.
     """
-    
+
     SETTING_WIDTH          = 'width'
     SETTING_ALIGN          = 'align'
-    
+
     SETTING_TEXT_FORMATING = 'text_formating'
-    
+
     SETTING_DATA_FORMATING = 'data_formating'
     SETTING_DATA_TYPE      = 'data_type'
-    
+
     SETTING_PADDING        = 'padding'
     SETTING_PADDING_CHAR   = 'padding_char'
     SETTING_PADDING_LEFT   = 'padding_left'
     SETTING_PADDING_RIGHT  = 'padding_right'
-    
+
     SETTING_MARGIN         = 'margin'
     SETTING_MARGIN_CHAR    = 'margin_char'
     SETTING_MARGIN_LEFT    = 'margin_left'
     SETTING_MARGIN_RIGHT   = 'margin_right'
-    
+
     def __init__(self, content = None, **kwargs):
         """
         Default object constructor.
@@ -343,18 +359,18 @@ class ConsoleWidget:
         for setting in self.list_settings():
             self._settings[setting[0]] = kwargs.get(setting[0], setting[1])
         self.setup(content, **kwargs)
-    
+
     def __str__(self):
         """
         Overloaded operator for direct string output.
         """
         return self.render()
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
 
-        The returned list is then used setup() and get_setup() methods to setup
+        The returned list is then used in setup() and get_setup() methods to setup
         the widget internal settings.
         """
         return [
@@ -374,7 +390,7 @@ class ConsoleWidget:
             (self.SETTING_MARGIN_LEFT, None),
             (self.SETTING_MARGIN_RIGHT, None),
         ]
-    
+
     def setup(self, content = None, **kwargs):
         """
         Store settings internally.
@@ -384,10 +400,10 @@ class ConsoleWidget:
         for setting in self.list_settings():
             if setting[0] in kwargs:
                 self._settings[setting[0]] = kwargs.get(setting[0])
-    
+
     def get_setup(self, content = None, **kwargs):
         """
-        Get current setup by combining internal settings with the one given.
+        Get current setup by combining internal settings with the ones given.
         """
         if content is None:
             content = self.content
@@ -402,16 +418,16 @@ class ConsoleWidget:
                 setup[setting[0]] = self._settings.get(setting[0])
 
         return (content, setup)
-    
+
     #---------------------------------------------------------------------------
-    
+
     @staticmethod
     def _es(settings, *keys):
         """
         Extract given subset of widget settings.
         """
         return {k: settings[k] for k in keys}
-    
+
     @staticmethod
     def _es_data(settings):
         """
@@ -419,7 +435,7 @@ class ConsoleWidget:
         """
         return {k: settings[k] for k in (ConsoleWidget.SETTING_DATA_FORMATING,
                                          ConsoleWidget.SETTING_DATA_TYPE)}
-    
+
     @staticmethod
     def _es_content(settings):
         """
@@ -431,7 +447,7 @@ class ConsoleWidget:
                                          ConsoleWidget.SETTING_PADDING_LEFT,
                                          ConsoleWidget.SETTING_PADDING_RIGHT,
                                          ConsoleWidget.SETTING_PADDING_CHAR)}
-    
+
     @staticmethod
     def _es_text(settings, text_formating = {}):
         """
@@ -440,7 +456,7 @@ class ConsoleWidget:
         s = {k: settings[k] for k in (ConsoleWidget.SETTING_FLAG_PLAIN,)}
         s.update(text_formating)
         return s
-    
+
     @staticmethod
     def _es_margin(settings):
         """
@@ -450,9 +466,9 @@ class ConsoleWidget:
                                          ConsoleWidget.SETTING_MARGIN_LEFT,
                                          ConsoleWidget.SETTING_MARGIN_RIGHT,
                                          ConsoleWidget.SETTING_MARGIN_CHAR)}
-    
+
     #---------------------------------------------------------------------------
-    
+
     @staticmethod
     def calculate_width_widget(width, margin = None, margin_left = None, margin_right = None):
         """
@@ -467,7 +483,7 @@ class ConsoleWidget:
         if margin_right is not None:
             width -= int(margin_right)
         return width if width > 0 else None
-    
+
     @staticmethod
     def calculate_width_content(width, margin = None, margin_left = None, margin_right = None, padding = None, padding_left = None, padding_right = None):
         """
@@ -490,7 +506,7 @@ class ConsoleWidget:
         if padding_right is not None:
             width -= int(padding_right)
         return width if width > 0 else None
-    
+
     @staticmethod
     def fmt_data(text, data_formating = None, data_type = None):
         """
@@ -501,7 +517,7 @@ class ConsoleWidget:
         elif data_formating:
             return str(data_formating).format(text)
         return str(text)
-    
+
     @staticmethod
     def fmt_content(text, width = 0, align = '<', padding = None, padding_left = None, padding_right = None, padding_char = ' '):
         """
@@ -520,7 +536,7 @@ class ConsoleWidget:
             strptrn = '{:' + ('{}{}{}'.format(str(padding_char)[0], str(TEXT_ALIGNMENT[align]), str(width))) + 's}'
             text = strptrn.format(text)
         return text
-    
+
     @staticmethod
     def fmt_text(text, bg = None, fg = None, attr = None, plain = False):
         """
@@ -536,7 +552,7 @@ class ConsoleWidget:
             if (fg is not None) or (bg is not None) or (attr is not None):
                 text += TEXT_FORMATING['rst']
         return text
-    
+
     @staticmethod
     def fmt_margin(text, margin = None, margin_left = None, margin_right = None, margin_char = ' '):
         """
@@ -551,15 +567,15 @@ class ConsoleWidget:
         if margin_right is not None:
             text = '{}{}'.format(text, str(margin_char)[0] * int(margin_right))
         return text
-    
+
     #---------------------------------------------------------------------------
-    
+
     def _render(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
         """
         raise Exception("This method must be oveloaded and implemented in subclass")
-    
+
     def render(self, content = None, **settings):
         """
         Perform widget rendering, but do not print anything.
@@ -573,13 +589,13 @@ class SingleLineWidget(ConsoleWidget):
     """
     Base class for single line only widgets.
     """
-    
+
     def _render_content(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
         """
         raise Exception("This method must be oveloaded and implemented in subclass")
-    
+
     def _render(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
@@ -590,7 +606,7 @@ class SingleLineWidget(ConsoleWidget):
         result = self.fmt_margin(result, **s)
 
         return result
-    
+
     def display(self, content = None, **settings):
         """
         Perform widget rendering and output the result.
@@ -603,13 +619,13 @@ class MultiLineWidget(ConsoleWidget):
     """
     Base class for widgets spanning over multiple lines.
     """
-    
+
     def _render_content(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
         """
         raise Exception("This method must be oveloaded and implemented in subclass")
-    
+
     def _render(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
@@ -622,7 +638,7 @@ class MultiLineWidget(ConsoleWidget):
             result.append(self.fmt_margin(l, **s))
 
         return result
-    
+
     def display(self, content = None, **settings):
         """
         Perform widget rendering and output the result.
@@ -635,13 +651,13 @@ class BorderedMultiLineWidget(MultiLineWidget):
     """
     Base class for bordered widgets spanning over multiple lines.
     """
-    
+
     SETTING_FLAG_BORDER      = 'border'
     SETTING_BORDER_FORMATING = 'border_formating'
     SETTING_BORDER_STYLE     = 'border_style'
-    
+
     #---------------------------------------------------------------------------
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
@@ -651,7 +667,7 @@ class BorderedMultiLineWidget(MultiLineWidget):
         result.append((self.SETTING_BORDER_FORMATING, {}))
         result.append((self.SETTING_BORDER_STYLE, 'utf8.a'))
         return result
-    
+
     @staticmethod
     def bchar(posh, posv, border_style):
         """
@@ -659,9 +675,9 @@ class BorderedMultiLineWidget(MultiLineWidget):
         """
         index = '{}{}'.format(posv, posh).lower()
         return BORDER_STYLES[border_style][index]
-    
+
     #---------------------------------------------------------------------------
-    
+
     @staticmethod
     def calculate_width_widget_int(width, border = False, margin = None, margin_left = None, margin_right = None):
         """
@@ -678,7 +694,7 @@ class BorderedMultiLineWidget(MultiLineWidget):
         if border:
             width -= 2
         return width if width > 0 else None
-    
+
     @staticmethod
     def calculate_width_content(width, border = False, margin = None, margin_left = None, margin_right = None, padding = None, padding_left = None, padding_right = None):
         """
@@ -710,9 +726,9 @@ class TextWidget(SingleLineWidget):
     """
     Implementation of formatable text widget.
     """
-    
+
     SETTING_TEXT_HIGHLIGHT = 'text_highlight'
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
@@ -720,7 +736,7 @@ class TextWidget(SingleLineWidget):
         result = super().list_settings()
         result.append((self.SETTING_TEXT_HIGHLIGHT, None))
         return result
-    
+
     #---------------------------------------------------------------------------
 
     def _render_content(self, content, **settings):
@@ -728,19 +744,19 @@ class TextWidget(SingleLineWidget):
         Perform widget rendering, but do not print anything.
         """
         ocontent = content
-        
+
         s = self._es_data(settings)
         content = self.fmt_data(content, **s)
-        
+
         s = self._es_content(settings)
         content = self.fmt_content(content, **s)
-        
+
         if settings[self.SETTING_TEXT_HIGHLIGHT]:
             s = self._es_text(settings, settings[self.SETTING_TEXT_HIGHLIGHT](ocontent))
         else:
             s = self._es_text(settings, settings[self.SETTING_TEXT_FORMATING])
         content = self.fmt_text(content, **s)
-        
+
         s = self._es_margin(settings)
         content = self.fmt_margin(content, **s)
 
@@ -752,7 +768,7 @@ class StatusLineWidget(TextWidget):
     """
     Implementation of line widget.
     """
-    
+
     def _render_content(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
@@ -766,15 +782,15 @@ class ListWidget(MultiLineWidget):
     """
     Implementation of list widget.
     """
-    
+
     INDENT = '    '
-    
+
     SETTING_LIST_FORMATING = 'list_formating'
     SETTING_LIST_STYLE     = 'list_style'
     SETTING_LIST_TYPE      = 'list_type'
-    
+
     #---------------------------------------------------------------------------
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
@@ -784,22 +800,22 @@ class ListWidget(MultiLineWidget):
         result.append((self.SETTING_LIST_STYLE, 'utf8.a'))
         result.append((self.SETTING_LIST_TYPE, 'unordered'))
         return result
-    
+
     @staticmethod
     def lchar(list_style):
         """
         Retrieve list bullet character for particular list style.
         """
         return LIST_STYLES[list_style]
-    
+
     #---------------------------------------------------------------------------
-    
+
     def _render_item(self, depth, key, value = None, **settings):
         """
         Format single list item.
         """
         strptrn  = self.INDENT * depth
-        
+
         lchar = self.lchar(settings[self.SETTING_LIST_STYLE])
         s = self._es_text(settings, settings[self.SETTING_LIST_FORMATING])
         lchar = self.fmt_text(lchar, **s)
@@ -809,9 +825,9 @@ class ListWidget(MultiLineWidget):
             strptrn += ": {}"
         s = self._es_text(settings, settings[self.SETTING_TEXT_FORMATING])
         strptrn = self.fmt_text(strptrn.format(key, value), **s)
-        
+
         return '{} {} {}'.format(self.INDENT * depth, lchar, strptrn)
-    
+
     def _render_content_list(self, content, depth, **settings):
         """
         Render the list.
@@ -830,7 +846,7 @@ class ListWidget(MultiLineWidget):
                 result.append(self._render_item(depth, value, **settings))
             i += 1
         return result
-        
+
     def _render_content_dict(self, content, depth, **settings):
         """
         Render the dict.
@@ -869,12 +885,12 @@ class TreeWidget(MultiLineWidget):
     """
     Base class for all console widgets.
     """
-    
+
     SETTING_TREE_FORMATING = 'tree_formating'
     SETTING_TREE_STYLE     = 'tree_style'
-    
+
     #---------------------------------------------------------------------------
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
@@ -883,7 +899,7 @@ class TreeWidget(MultiLineWidget):
         result.append((self.SETTING_TREE_FORMATING, {}))
         result.append((self.SETTING_TREE_STYLE, 'utf8.a'))
         return result
-    
+
     @staticmethod
     def tchar(tree_style, cur_level, level, item, size):
         """
@@ -909,7 +925,7 @@ class TreeWidget(MultiLineWidget):
         Format single tree line.
         """
         cur_depth = len(dstack) - 1
-        
+
         treeptrn = ''
         s = self._es_text(settings, settings[self.SETTING_TREE_FORMATING])
         for ds in dstack:
@@ -920,7 +936,7 @@ class TreeWidget(MultiLineWidget):
             strptrn += ": {}"
         s = self._es_text(settings, settings[self.SETTING_TEXT_FORMATING])
         strptrn = self.fmt_text(strptrn.format(key, value), **s)
-        
+
         return '{} {}'.format(treeptrn, strptrn)
 
     def _render_content_list(self, content, depth, dstack, **settings):
@@ -984,13 +1000,13 @@ class BoxWidget(BorderedMultiLineWidget):
     """
     Implementation of box widget.
     """
-    
+
     SETTING_FLAG_HEADER      = 'header'
     SETTING_HEADER_CONTENT   = 'header_content'
     SETTING_HEADER_FORMATING = 'header_formating'
-    
+
     #---------------------------------------------------------------------------
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
@@ -1000,16 +1016,16 @@ class BoxWidget(BorderedMultiLineWidget):
         result.append((self.SETTING_HEADER_CONTENT, 'Notice'))
         result.append((self.SETTING_HEADER_FORMATING, {}))
         return result
-    
+
     def fmt_border(self, width, t = 'm', border_style = 'utf8.a', border_formating = {}):
         """
         Format box separator line.
         """
         border = self.bchar('l', t, border_style) + (self.bchar('h', t, border_style) * (width-2)) + self.bchar('r', t, border_style)
         return self.fmt_text(border, **border_formating)
-    
+
     #---------------------------------------------------------------------------
-    
+
     @staticmethod
     def _wrap_content(content, width):
         """
@@ -1026,9 +1042,9 @@ class BoxWidget(BorderedMultiLineWidget):
             l = textwrap.wrap(d, width)
             lines += l
         return lines
-    
+
     #---------------------------------------------------------------------------
-    
+
     def _render_border_line(self, t, settings):
         """
         Render box border line.
@@ -1040,27 +1056,27 @@ class BoxWidget(BorderedMultiLineWidget):
         s = self._es(settings, self.SETTING_MARGIN, self.SETTING_MARGIN_LEFT, self.SETTING_MARGIN_RIGHT, self.SETTING_MARGIN_CHAR)
         border_line = self.fmt_margin(border_line, **s)
         return border_line
-    
+
     def _render_line(self, line, settings):
         """
         Render single box line.
         """
         s = self._es(settings, self.SETTING_WIDTH, self.SETTING_FLAG_BORDER, self.SETTING_MARGIN, self.SETTING_MARGIN_LEFT, self.SETTING_MARGIN_RIGHT)
         width_content = self.calculate_width_widget_int(**s)
-        
+
         s = self._es_content(settings)
         s[self.SETTING_WIDTH] = width_content
         line = self.fmt_content(line, **s)
-        
+
         s = self._es_text(settings, settings[self.SETTING_TEXT_FORMATING])
         line = self.fmt_text(line, **s)
-        
+
         s = self._es(settings, self.SETTING_BORDER_STYLE)
         bchar = self.bchar('v', 'm', **s)
-        
+
         s = self._es_text(settings, settings[self.SETTING_BORDER_FORMATING])
         bchar = self.fmt_text(bchar, **s)
-        
+
         line = '{}{}{}'.format(bchar, line, bchar)
         s = self._es_margin(settings)
         line = self.fmt_margin(line, **s)
@@ -1072,12 +1088,12 @@ class BoxWidget(BorderedMultiLineWidget):
         """
         if not self.SETTING_WIDTH in settings or not settings[self.SETTING_WIDTH]:
             settings[self.SETTING_WIDTH] = TERMINAL_WIDTH
-        
+
         s = {k: settings[k] for k in (self.SETTING_WIDTH, self.SETTING_FLAG_BORDER, self.SETTING_MARGIN, self.SETTING_MARGIN_LEFT, self.SETTING_MARGIN_RIGHT, self.SETTING_PADDING, self.SETTING_PADDING_LEFT, self.SETTING_PADDING_RIGHT)}
         width_int = self.calculate_width_content(**s)
-        
+
         lines = self._wrap_content(content, width_int)
-        
+
         result = []
         if settings[self.SETTING_FLAG_BORDER]:
             result.append(self._render_border_line('t', settings))
@@ -1098,16 +1114,16 @@ class TableWidget(BorderedMultiLineWidget):
     """
     Table result formater.
     """
-    
+
     SETTING_FLAG_HEADER      = 'header'
     SETTING_HEADER_CONTENT   = 'header_content'
     SETTING_HEADER_FORMATING = 'header_formating'
     SETTING_FLAG_ENUMERATE   = 'enumerate'
     SETTING_COLUMNS          = 'columns'
     SETTING_ROW_HIGHLIGHT    = 'row_highlight'
-    
+
     #---------------------------------------------------------------------------
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
@@ -1120,7 +1136,7 @@ class TableWidget(BorderedMultiLineWidget):
         result.append((self.SETTING_COLUMNS, None))
         result.append((self.SETTING_ROW_HIGHLIGHT, None))
         return result
-    
+
     def fmt_border(self, dimensions, t = 'm', border_style = 'utf8.a', border_formating = {}):
         """
         Format table separator line.
@@ -1131,7 +1147,7 @@ class TableWidget(BorderedMultiLineWidget):
 
         border = '{}{}{}'.format(self.bchar('l', t, border_style), self.bchar('m', t, border_style).join(cells), self.bchar('r', t, border_style))
         return self.fmt_text(border, **border_formating)
-    
+
     def fmt_cell(self, value, width, cell_formating, **text_formating):
         """
         Format sigle table cell.
@@ -1139,7 +1155,7 @@ class TableWidget(BorderedMultiLineWidget):
         strptrn = " {:" + '{:s}{:d}'.format(cell_formating.get('align', '<'), width) + "s} "
         strptrn = self.fmt_text(strptrn, **text_formating)
         return strptrn.format(value)
-    
+
     def fmt_row(self, columns, dimensions, row, **settings):
         """
         Format single table row.
@@ -1158,16 +1174,16 @@ class TableWidget(BorderedMultiLineWidget):
         return self.bchar('v', 'm', settings[self.SETTING_BORDER_STYLE], **settings[self.SETTING_BORDER_FORMATING]) + \
                self.bchar('v', 'm', settings[self.SETTING_BORDER_STYLE], **settings[self.SETTING_BORDER_FORMATING]).join(cells) + \
                self.bchar('v', 'm', settings[self.SETTING_BORDER_STYLE], **settings[self.SETTING_BORDER_FORMATING])
-    
+
     def fmt_row_header(self, columns, dimensions, **settings):
         """
         Format table header row.
         """
         row = list(map(lambda x: x['label'], columns))
         return self.fmt_row(columns, dimensions, row, **settings)
-    
+
     #---------------------------------------------------------------------------
-    
+
     def table_format(self, columns, content):
         """
         Enumerate each table column.
@@ -1182,7 +1198,7 @@ class TableWidget(BorderedMultiLineWidget):
                 i += 1
             result.append(result_row)
         return (columns, result)
-    
+
     def table_enumerate(self, columns, content):
         """
         Enumerate each table column.
@@ -1193,7 +1209,7 @@ class TableWidget(BorderedMultiLineWidget):
             i += 1
             row.insert(0, '{:d}'.format(i))
         return (columns, content)
-    
+
     def table_measure(self, columns, content):
         """
         Measure the width of each table column.
@@ -1211,26 +1227,26 @@ class TableWidget(BorderedMultiLineWidget):
                     )
                 i += 1
         return dimensions
-    
+
     #---------------------------------------------------------------------------
-    
+
     def _render_content(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
         """
         result = []
         columns = settings[self.SETTING_COLUMNS]
-        
+
         # Format each table cell into string.
         (columns, content) = self.table_format(columns, content)
-        
+
         # Enumerate each table row.
         if settings[self.SETTING_FLAG_ENUMERATE]:
             (columns, content) = self.table_enumerate(columns, content)
-        
+
         # Calculate the dimensions of each table column.
         dimensions = self.table_measure(columns, content)
-        
+
         # Display table header.
         sb = {k: settings[k] for k in (self.SETTING_BORDER_STYLE, self.SETTING_BORDER_FORMATING)}
         result.append(self.fmt_border(dimensions, 't', **sb))
@@ -1239,13 +1255,13 @@ class TableWidget(BorderedMultiLineWidget):
             s[self.SETTING_TEXT_FORMATING] = settings[self.SETTING_HEADER_FORMATING]
             result.append(self.fmt_row_header(columns, dimensions, **s))
             result.append(self.fmt_border(dimensions, 'm', **sb))
-        
+
         # Display table body.
         for row in content:
             s = {k: settings[k] for k in (self.SETTING_FLAG_PLAIN, self.SETTING_BORDER_STYLE, self.SETTING_BORDER_FORMATING)}
             s[self.SETTING_TEXT_FORMATING] = settings[self.SETTING_TEXT_FORMATING]
             result.append(self.fmt_row(columns, dimensions, row, **s))
-        
+
         # Display table footer
         result.append(self.fmt_border(dimensions, 'b', **sb))
         return result
@@ -1260,9 +1276,9 @@ class ProgressBarWidget(SingleLineWidget):
     SETTING_BAR_FORMATING = 'bar_formating'
     SETTING_BAR_CHAR      = 'bar_char'
     SETTING_BAR_WIDTH     = 'bar_width'
-    
+
     #---------------------------------------------------------------------------
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
@@ -1272,9 +1288,9 @@ class ProgressBarWidget(SingleLineWidget):
         result.append((self.SETTING_BAR_CHAR, '='))
         result.append((self.SETTING_BAR_WIDTH, 0))
         return result
-    
+
     #---------------------------------------------------------------------------
-    
+
     def _render_content(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
@@ -1290,7 +1306,7 @@ class ProgressBarWidget(SingleLineWidget):
         progress = self.fmt_text(progress, **s)
         progress += ' ' * int(bar_len - int(bar_len * percent))
         return "{:6.2f}% [{:s}]".format(percent * 100, progress)
-    
+
     def display(self, content = None, **settings):
         """
         Perform widget rendering and output the result.
@@ -1310,9 +1326,9 @@ class BarChartWidget(MultiLineWidget):
     SETTING_BAR_CHAR      = 'bar_char'
     SETTING_BAR_WIDTH     = 'bar_width'
     SETTING_BARS          = 'bars'
-    
+
     #---------------------------------------------------------------------------
-    
+
     def list_settings(self):
         """
         Get list of all appropriate settings and their default values.
@@ -1323,7 +1339,7 @@ class BarChartWidget(MultiLineWidget):
         result.append((self.SETTING_BAR_WIDTH, 0))
         result.append((self.SETTING_BARS, None))
         return result
-    
+
     def chart_measure(self, bars):
         """
         Measure the width of each table column.
@@ -1337,9 +1353,9 @@ class BarChartWidget(MultiLineWidget):
                 bar.get('width_min', 0),    # configured column minimal width
             )
         return width
-    
+
     #---------------------------------------------------------------------------
-    
+
     def _render_bar(self, bar, value, max_value, label_width, bar_width, **settings):
         """
         Render single chart bar.
@@ -1353,14 +1369,14 @@ class BarChartWidget(MultiLineWidget):
         barstr += ' ' * int(bar_width - int(bar_width * percent))
         strptrn = "{:"+str(label_width)+"s} [{:s}]"
         return strptrn.format(bar.get('label'), barstr)
-    
+
     def _render_content(self, content, **settings):
         """
         Perform widget rendering, but do not print anything.
         """
         result = []
         bars = settings[self.SETTING_BARS]
-        
+
         label_width = self.chart_measure(bars)
         if not settings[self.SETTING_BAR_WIDTH]:
             settings[self.SETTING_BAR_WIDTH] = TERMINAL_WIDTH - label_width - 3
@@ -1373,21 +1389,51 @@ class BarChartWidget(MultiLineWidget):
 
 if __name__ == "__main__":
     """
-    Perform the demonstration.
+    Perform the library demonstration.
     """
+
+    widget_groups = ['all', 'data', 'text', 'line', 'box', 'list', 'tree', 'table', 'progress', 'barchart']
+    section_separator = "\n                  --------------------------------------------\n"
     argparser = argparse.ArgumentParser(description = "pydgets - Console widget library for Python 3")
-    argparser.add_argument('--group', help = 'pick a group of widgets', choices = ['all', 'data', 'text', 'line', 'box', 'list', 'tree', 'table', 'progress', 'barchart'], default='all')
+    argparser.add_argument('--group', help = 'pick a group of widgets', choices = widget_groups, default='all')
     args = argparser.parse_args()
+
+    print("""
+                  ==============================================
+                    _____             _               _
+                   |  __ \           | |             | |
+                   | |__) |_   _   __| |  __ _   ___ | |_  ___
+                   |  ___/| | | | / _` | / _` | / _ \| __|/ __|
+                   | |    | |_| || (_| || (_| ||  __/| |_ \__ \\
+                   |_|     \__, | \__,_| \__, | \___| \__||___/
+                            __/ |         __/ |
+                           |___/         |___/
+
+                  ==============================================
+                  ıllıllı PYTHON3 CONSOLE WIDGET LIBRARY ıllıllı
+                  ==============================================
+
+""")
+
+    argparser.print_help()
+    print(section_separator)
+
+    #---------------------------------------------------------------------------
 
     (columns, rows) = terminal_size()
     print("Detected terminal size {} x {} (WxH)".format(columns, rows))
+    print(section_separator)
+
+    #---------------------------------------------------------------------------
 
     if args.group in ('all', 'data'):
         print("")
-        labelptrn = " {:<60s} "
-        textw = TextWidget()
         print("Demonstrations of TextWidget data formating capabilities...")
         print("")
+
+        labelptrn = " {:<60s} "
+        textw = TextWidget()
+
         for conv in (
             [523689,        'int'],
             [123523.689111, 'float'],
@@ -1400,7 +1446,8 @@ if __name__ == "__main__":
             label = " Data conversion '{}' to '{}'".format(conv[0], conv[1])
             label = labelptrn.format(label)
             print(label, textw.render(conv[0], data_type = conv[1]))
-        
+
+        print("")
         print("Demonstrations of TextWidget data highlighting capabilities...")
         print("")
 
@@ -1412,7 +1459,12 @@ if __name__ == "__main__":
 
         for val in ('50', '150'):
             label = " Data decoration '{}'".format(val)
+            label = labelptrn.format(label)
             print(label, textw.render(val, text_highlight = deco))
+
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
 
     if args.group in ('all', 'text'):
         print("")
@@ -1456,6 +1508,10 @@ if __name__ == "__main__":
                     label = labelptrn.format(label)
                     print(labelptrn.format(label), textw.render(label, text_formating = {"fg": fg, "bg": bg, "attr": attr}))
 
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
+
     if args.group in ('all', 'line'):
         print("")
         print("Demonstrations of StatusLineWidget...")
@@ -1465,6 +1521,10 @@ if __name__ == "__main__":
         print(linew.render('Test status line text, centered', align = '^', text_formating = {"bg": "on_red"}))
         print(linew.render('Test status line text, right align, right padding with custom character', padding_right = 5, padding_char = '#', align = '>', text_formating = {"bg": "on_blue"}))
         print(linew.render('Test status line text, margin', margin = 5, text_formating = {"bg": "on_yellow"}))
+
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
 
     if args.group in ('all', 'list'):
         print("")
@@ -1497,6 +1557,10 @@ if __name__ == "__main__":
         }
         listw = ListWidget()
         listw.display(data)
+
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
 
     if args.group in ('all', 'tree'):
         print("")
@@ -1531,7 +1595,11 @@ if __name__ == "__main__":
             }
             treew = TreeWidget()
             treew.display(data, tree_style = s)
-        
+
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
+
     if args.group in ('all', 'box'):
         print("")
         print("Demonstrations of BoxWidget...")
@@ -1541,6 +1609,10 @@ if __name__ == "__main__":
             h = "Style {}".format(s)
             print("")
             boxw.display(text, header_content = h, width = 150, padding = 1, border_style = s, header_formating = {"bg": "on_red"})
+
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
 
     if args.group in ('all', 'table'):
         print("")
@@ -1560,6 +1632,10 @@ if __name__ == "__main__":
             ]
         tablew.display(tbody, columns = tcols)
 
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
+
     if args.group in ('all', 'progress'):
         print("")
         print("Demonstrations of ProgressBarWidget...")
@@ -1568,6 +1644,10 @@ if __name__ == "__main__":
         for i in range(0, 100, 10):
             progw.display(i/100)
             time.sleep(1)
+
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
 
     if args.group in ('all', 'barchart'):
         print("")
@@ -1592,4 +1672,10 @@ if __name__ == "__main__":
                 324,
                 12,
             ]
-        barch.display(chbody, bars = chbars)
+        barch.display(chbody, bars = chbars, bar_formating = {"fg": "blue", "bg": "on_blue"})
+
+        print(section_separator)
+
+    #---------------------------------------------------------------------------
+
+    argparser.print_help()
