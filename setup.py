@@ -23,7 +23,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name = 'pydgets',
-    version = '0.6',
+    version = '0.9',
     description = 'Console widget library for Python 3',
     long_description = long_description,
     classifiers = [

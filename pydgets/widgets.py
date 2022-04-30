@@ -288,24 +288,39 @@ TREE_STYLES = {
 
 #-------------------------------------------------------------------------------
 
+def is_terminal(fdesc):
+    """
+    Check, if we are connected to any terminal-like device.
+    """
+    try:
+        if not fdesc:
+            return False
+        return os.isatty(fdesc.fileno())
+    except:
+        return False
+
+# Detect the terminal automatically after library initialization.
+IS_TERMINAL = is_terminal(sys.stdout)
+
 def terminal_size():
     """
     Detect the current size of terminal window as a numer of rows and columns.
     """
-    try:
-        (rows, columns) = os.popen('stty size', 'r').read().split()
-        rows    = int(rows)
-        columns = int(columns)
-        return (columns, rows)
+    if IS_TERMINAL:
+        try:
+            (rows, columns) = os.popen('stty size', 'r').read().split()
+            rows    = int(rows)
+            columns = int(columns)
+            return (columns, rows)
 
-    # Currently ignore any errors and return some reasonable default values.
-    # Errors may occur, when the library is used in non-terminal application
-    # like daemon.
-    except:
-        pass
+        # Currently ignore any errors and return some reasonable default values.
+        # Errors may occur, when the library is used in non-terminal application
+        # like daemon.
+        except:
+            pass
     return (80, 24)
 
-# Detect the terminal size automatically after library initialization
+# Detect the terminal size automatically after library initialization.
 (TERMINAL_WIDTH, TERMINAL_HEIGHT) = terminal_size()
 
 #-------------------------------------------------------------------------------
